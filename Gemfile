@@ -16,6 +16,7 @@ group :development do
 end
 
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.
