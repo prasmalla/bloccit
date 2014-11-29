@@ -1,13 +1,5 @@
 class PostsController < ApplicationController
-  def index
-    @posts = Post.all
-    #authorize @posts
-    #Pundit is unable to find class for a CollectionProxy(Array)
-    #https://github.com/elabs/pundit/issues/213
-    @posts.each do |post|
-      authorize post
-    end  
-  end
+  before_filter :find_topic
 
   def show
     @post = Post.find(params[:id])
@@ -21,10 +13,11 @@ class PostsController < ApplicationController
   def create
     #RAILS4 @post = current_user.posts.build(params.require(:post).permit(:title, :body))
     @post = current_user.posts.build(params[:post])
+    @post.topic = @topic
     authorize @post
     if @post.save
       flash[:notice] = "Post was saved."
-      redirect_to @post
+      redirect_to [@topic, @post]
     else
       flash[:error] = "There was an error saving the post. Please try again."
       render :new
@@ -41,10 +34,14 @@ class PostsController < ApplicationController
     authorize @post
     if @post.update_attributes(params[:post])
       flash[:notice] = "Post was updated."
-      redirect_to @post
+      redirect_to [@topic, @post]
     else
       flash[:error] = "There was an error saving the post. Please try again."
       render :edit
     end
   end
+
+  def find_topic
+    @topic  = Topic.find(params[:topic_id])
+  end  
 end
