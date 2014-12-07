@@ -8,6 +8,7 @@
        <%= @post.user.name %>
      </small>
     <p><%= markdown @post.body %></p>
+    <%= image_tag(@post.image.thumb.url) if @post.image? %>
   </div>
   <div class="col-md-4">
       <%= link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn-success' if policy(@post).edit? %>
