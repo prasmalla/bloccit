@@ -17,6 +17,7 @@ end
 
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
+gem 'redcarpet'
 
 #environment variables
 gem 'figaro', '1.0' 
