@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    @topics = Topic.order(:name).page params[:page]
     #authorize @topics
     #Pundit is unable to find class for a CollectionProxy(Array)
     #https://github.com/elabs/pundit/issues/213
