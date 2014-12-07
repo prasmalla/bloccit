@@ -1,0 +1,4 @@
+<%# @comment.body %>
+<% @comments.each do |c| %>
+  <p><%= c.body %><br /><small>By <%= c.user.name %></small></p>
+<% end %>  

@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  has_many :comments
+  has_many_documents :comments
   belongs_to :user
   belongs_to :topic
   

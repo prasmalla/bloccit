@@ -9,6 +9,9 @@
      </small>
     <p><%= markdown @post.body %></p>
     <%= image_tag(@post.image.thumb.url) if @post.image? %>
+    <%= render partial: 'comments/form', locals: {topic: @topic, post: @post} if current_user %>
+    <%#TODO terse render @comments %>
+    <%= render partial: 'comments/comment', locals: {comments: @comments} %>
   </div>
   <div class="col-md-4">
       <%= link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn-success' if policy(@post).edit? %>

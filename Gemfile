@@ -13,6 +13,11 @@ end
 group :development do
   gem 'sqlite3'
   gem 'faker'
+  gem 'mongoid', '~> 2.4'
+  gem 'bson_ext', '~> 1.5'
+  gem 'pry'
+  gem 'binding_of_caller'
+  gem 'better_errors'
 end
 
 gem 'bootstrap-sass', '~> 3.1.1'
