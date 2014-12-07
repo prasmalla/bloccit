@@ -17,7 +17,14 @@ end
 
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
+
+#markdown
 gem 'redcarpet'
+
+#image upload/manipulate
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog' #cloud storage
 
 #environment variables
 gem 'figaro', '1.0' 
