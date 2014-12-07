@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  has_many_documents :comments
+  has_many_documents :comments#, dependent: :destroy
   belongs_to :user
   belongs_to :topic
   

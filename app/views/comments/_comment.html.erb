@@ -1,4 +1,14 @@
-<%# @comment.body %>
-<% @comments.each do |c| %>
-  <p><%= c.body %><br /><small>By <%= c.user.name %></small></p>
+<% @comments.each do |comment| %>
+<div class="media">
+  <%= link_to '#', class: 'pull-left' do %>
+    <%= image_tag(comment.user.avatar.small.url) if comment.user.avatar? %>
+  <% end %>
+  <div class="media-body">
+    <small>
+      <%= comment.user.name %> commented <%= time_ago_in_words(comment.created_at) %> ago
+      <%= link_to " | Delete", [@topic, @post, comment], method: :delete if current_user %>
+    </small>
+    <p><%= comment.body %></p>
+  </div>
+</div>
 <% end %>  
