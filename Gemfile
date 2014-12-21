@@ -18,6 +18,10 @@ group :development do
   gem 'better_errors'
 end
 
+group :test do
+  gem 'rspec-rails', '~> 3.1.0'
+end
+
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 
