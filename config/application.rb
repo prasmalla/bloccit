@@ -70,5 +70,12 @@ module Bloccit
 
     #mongoid log
     config.mongoid.logger = Logger.new($stdout, :warn)
+
+    #default generators to AR
+    config.generators do |g| 
+      g.orm :active_record 
+    end
+
+    I18n.enforce_available_locales = false
   end
 end

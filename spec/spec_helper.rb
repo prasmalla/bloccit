@@ -82,4 +82,9 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  #play nice with mongoid
+  config.before :each do
+    Mongoid.purge!
+  end
 end

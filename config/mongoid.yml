@@ -1,4 +1,4 @@
- development:
+development:
   host: localhost
   database: bloccit_development
 
@@ -6,7 +6,6 @@ test:
   host: localhost
   database: bloccit_test
 
-# set these environment variables on your prod server
 production:
   sessions:
     default:
