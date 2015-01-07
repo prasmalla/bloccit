@@ -1,6 +1,5 @@
 class VotesController < ApplicationController
   before_filter :load_post_and_vote
-  after_filter :update_post
 
   def up_vote
     update_vote!(1)
@@ -31,9 +30,5 @@ class VotesController < ApplicationController
       authorize @vote, :create? 
       @vote.save 
     end 
-  end
-  
-  def update_post
-    @post.update_rank
   end
 end
