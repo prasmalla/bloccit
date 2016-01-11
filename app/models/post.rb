@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :user, dependent: :destroy
   belongs_to :topic
   has_many :votes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   attr_accessible :body, :title, :user, :role, :topic, :image, :image_cache, :created_at
 

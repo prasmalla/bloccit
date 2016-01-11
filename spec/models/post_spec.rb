@@ -5,8 +5,8 @@
 
   describe "vote methods" do 
     before do
-      @post = associated_post
-      # allow(@post).to receive(:create_vote)
+      @post = associated_post  
+      allow(@post).to receive(:create_vote)
       @post.save
       3.times { @post.votes.create(value: 1) }
       2.times { @post.votes.create(value: -1) }
@@ -38,5 +38,5 @@
         expect( post.up_votes ).to eq(1)
       end
     end
-  end 
+  end
 end
