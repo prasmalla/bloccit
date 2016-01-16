@@ -68,9 +68,6 @@ module Bloccit
     #required for heroku deploy
     config.assets.initialize_on_precompile = false
 
-    #mongoid log
-    config.mongoid.logger = Logger.new($stdout, :warn)
-
     #default generators to AR
     config.generators do |g| 
       g.orm :active_record 

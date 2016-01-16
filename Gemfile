@@ -47,10 +47,6 @@ gem 'country_select'
 #pagination
 gem 'kaminari'
 
-#mongoid
-gem 'mongoid', '~> 2.4'
-gem 'bson_ext', '~> 1.5'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

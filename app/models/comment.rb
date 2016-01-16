@@ -1,12 +1,6 @@
-class Comment
-  include Mongoid::Document
-  include Mongoid::ActiveRecordBridge
-  include Mongoid::Timestamps
-
-  field :body, type: String
-
-  belongs_to_record :post
-  belongs_to_record :user
+class Comment < ActiveRecord::Base
+  belongs_to :post
+  belongs_to :user
   
   validates_presence_of :user_id
   validates :body, length: { minimum: 5 }, presence: true
