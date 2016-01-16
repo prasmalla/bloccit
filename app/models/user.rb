@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :name, :role, :avatar, :avatar_cache
+  attr_accessible :name, :role, :avatar, :avatar_cache, :email_favorites
 
   mount_uploader :avatar, AvatarUploader
 
@@ -26,5 +26,9 @@ class User < ActiveRecord::Base
   
   def favorited(post)
     favorites.where(post_id: post.id).first
-  end    
+  end
+
+  def voted(post)
+    votes.where(post_id: post.id).first
+  end
 end
