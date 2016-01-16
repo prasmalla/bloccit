@@ -2,9 +2,9 @@ class Comment < ActiveRecord::Base
   belongs_to :post
   belongs_to :user
   
-  validates_presence_of :user_id
+  validates_presence_of :user
   validates :body, length: { minimum: 5 }, presence: true
-
+  attr_accessible :user, :post, :body
   after_create :send_favorite_emails
 
   #fix pundit/mongoid no method error
