@@ -18,6 +18,7 @@ end
 group :test do
   gem 'rspec-rails', '~> 3.1.0'
   gem 'capybara'
+  gem 'factory_girl_rails', '~> 3.6'
 end
 
 gem 'bootstrap-sass', '~> 3.1.1'
