@@ -31,4 +31,15 @@ class User < ActiveRecord::Base
   def voted(post)
     votes.where(post_id: post.id).first
   end
+
+  def self.top_rated
+    self.select('users.*') #select all user attributes
+      .select('COUNT(DISTINCT comments.id) AS comments_count') #count comments
+      .select('COUNT(DISTINCT posts.id) AS posts_count') #count posts
+      .select('COUNT(DISTINCT comments.id) + COUNT(DISTINCT posts.id) AS rank') #add for rank
+      .joins(:posts)
+      .joins(:comments)
+      .group('users.id')
+      .order('rank DESC')
+  end
 end

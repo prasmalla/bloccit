@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, except: [:show]
+  before_filter :authenticate_user!, except: [:show, :index]
+
+  def index
+    @users = User.top_rated.page(params[:page])
+  end
 
   def update
     if current_user.update_attributes(params[:user])
