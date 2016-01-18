@@ -2,9 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.19'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 group :production do
   gem 'pg'
   gem 'rails_12factor'
@@ -66,5 +63,8 @@ gem 'jquery-rails'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
+
+gem 'puma'
+gem 'rack-timeout'
 
 gem 'newrelic_rpm'
