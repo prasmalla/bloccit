@@ -15,6 +15,7 @@ class Topics::PostsController < ApplicationController
   def create
     #RAILS4 @post = current_user.posts.build(params.require(:post).permit(:title, :body))
     @post = current_user.posts.build(params[:post])
+    @topic = Topic.find(params[:topic_id])
     @post.topic = @topic
     authorize @post
     if @post.save_with_initial_vote
