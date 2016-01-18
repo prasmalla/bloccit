@@ -7,6 +7,8 @@ class Comment < ActiveRecord::Base
   attr_accessible :user, :post, :body
   after_create :send_favorite_emails
 
+  default_scope { order('updated_at') }
+
   #fix pundit/mongoid no method error
   #https://github.com/mongoid/mongoid/issues/2661
   def model_name

@@ -29,6 +29,8 @@
     <div class='js-comments'>
       <%= render partial: 'comments/comment', collection: @comments %>
     </div>
-    <%= render 'comments/form' if current_user %>
+    <div class='new-comment'>
+      <%= render partial: 'comments/form' if current_user %>
+    </div>
   </div>
 </div>
